@@ -1,20 +1,256 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-
-*/
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--main-font, "Inter-Variable"), sans-serif;
+  font-variation-settings: "wght" var(--text-font-weight, 400);
+  color: var(--accent-color, #000);
+  background-color: var(--background-color, #fff);
+  background-image: var(--background-image, url(../svg/pattern-light.svg));
+  background-repeat: repeat;
+  background-size: 4px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-block-start: 100px;
+  min-block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
+  flex-direction: column;
+  background-color: var(--background-color, #fff);
+  border: 2px solid var(--accent-color, #000);
+  font-family: var(--accent-font, "PressStart2P"), sans-serif;
+  inline-size: var(--content-width, min(100%, 700px));
+}
+
+.header__logo {
+  margin-block-end: 20px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.header__title {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.header__theme-menu {
+  padding: 23px 0 25px;
+  justify-self: center;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.theme-menu__item {
+  padding-inline-start: 20px;
+}
+
+.theme-menu__button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease opacity;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus {
+  opacity: 0.6;
+  outline: none;
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button::after {
+  content: "";
+  display: block;
+  inline-size: 100%;
+  block-size: 2px;
+  background-color: var(--accent-color, #000);
+  position: absolute;
+  inset-block-end: -3px;
+  inset-inline-start: 0;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: 0.3s ease transform;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  left: -20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .theme-menu__button:disabled::before {
+    animation: moving-arrow 0.5s ease-in-out infinite alternate;
+  }
+}
+
+.main {
+  inline-size: var(--content-width, min(100%, 700px));
+  padding: 100px 0;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--accent-color, #000);
+  background-color: var(--background-color, #fff);
+}
+
+.card__title {
+  font-size: 18px;
+  font-variation-settings: "wght" var(--title-font-weight, 700);
+  padding: 3px 10px 5px;
+  border: 0 solid var(--accent-color, #000);
+}
+
+.card__image {
+  inline-size: 100%;
+  border: 0 solid var(--accent-color, #000);
+  border-block-width: 2px;
+}
+
+.card__content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.card__text {
+  font-size: 18px;
+  line-height: 116.667%;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 25px 25px;
+}
+
+.card__icon-button {
+  display: flex;
+  background-color: transparent;
+  padding: 0;
+  margin-inline-end: 4px;
+  border: 2px solid transparent;
+  transition: 0.3s ease border-color;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color, #000);
+}
+
+.button {
+  position: relative;
+  border: 2px solid var(--accent-color, #000);
+  background-color: var(--background-color, #fff);
+  cursor: pointer;
+  transition: 0.3s ease box-shadow;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color, #000);
+}
+
+.button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent-color, #000);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.5s ease-in-out transform;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.card__like-button {
+  padding: 8px;
+  inline-size: 130px;
+}
+
+.button__text {
+  position: relative;
+  white-space: nowrap;
+  font-family: var(--accent-font, "PressStart2P"), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 90%;
+  transition: 1s ease color;
+}
+
+.save-button {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin: 50px 33px 0;
+  padding: 15px 20px;
+}
+
+.save-button__icon {
+  block-size: 21px;
+  inline-size: 22px;
+  position: relative;
+  stroke-width: 0;
+  transition: 1s ease color;
+}
+
+.button:hover .button__text,
+.button:hover .save-button__icon {
+  color: var(--background-color, #fff);
+}
+
+@media (width <= 375px) {
+  .save-button__icon {
+    block-size: 28px;
+    inline-size: 29px;
+  }
 }
