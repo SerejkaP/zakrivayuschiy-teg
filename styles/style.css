@@ -18,7 +18,6 @@
   align-items: center;
   justify-content: flex-end;
   margin-block-start: 100px;
-  min-block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
   flex-direction: column;
   background-color: var(--background-color, #fff);
   border: 2px solid var(--accent-color, #000);
@@ -28,10 +27,15 @@
 
 .header__logo {
   margin-block-end: 20px;
+  margin-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   font-weight: 400;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.header__logo:focus {
+  outline: none;
 }
 
 .header__title {
@@ -104,7 +108,8 @@
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
-  left: -20px;
+  inset-inline-start: -20px;
+  inset-block-start: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -140,6 +145,7 @@
 
 .card__image {
   inline-size: 100%;
+  object-fit: cover;
   border: 0 solid var(--accent-color, #000);
   border-block-width: 2px;
 }
@@ -168,6 +174,7 @@
   padding: 0;
   margin-inline-end: 4px;
   border: 2px solid transparent;
+  cursor: pointer;
   transition: 0.3s ease border-color;
 }
 
