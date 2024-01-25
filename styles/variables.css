@@ -4,9 +4,17 @@
   --title-font-weight: 700;
   --text-font-weight: 400;
   --background-color: #fff;
+  --background-gradient: repeating-linear-gradient(
+      to right,
+      #d3d3d3 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(#e7e7e7 0.01%, #1a1a1a);
   --accent-color: #000;
-  --background-image: url(../svg/pattern-light.svg);
   --content-width: min(100%, 700px);
   --icon-contour-color: #000;
   --icon-color: #ff0000;
+  --button-color: #fff;
+  --backdrop-color: #000;
 }
