@@ -54,7 +54,7 @@
           <div class="card__image-wrapper">
             <span class="card__label">&lt;/HTML&gt;</span>
             <img
-              class="card__image prepare-image"
+              class="card__image hue-rotate-image"
               src="./images/prepare.avif"
               alt="Вид на море с причала"
               loading="lazy"
@@ -113,7 +113,7 @@
           <div class="card__image-wrapper">
             <span class="card__label">&lt;/HTML&gt;</span>
             <img
-              class="card__image begining-image"
+              class="card__image grayscale-blur-image"
               src="./images/begining.avif"
               alt="Рабочее место с надписью 'Just start'"
               loading="lazy"
@@ -176,7 +176,7 @@
           <div class="card__image-wrapper">
             <span class="card__label">&lt;CSS&gt;</span>
             <img
-              class="card__image adventures-image"
+              class="card__image contrast-brightness-saturate-image"
               src="./images/luffy.gif"
               alt="Луффи бежит на встерчу приключениям"
               loading="lazy"
@@ -235,7 +235,7 @@
           <div class="card__image-wrapper">
             <span class="card__label">&lt;desigions&gt;</span>
             <img
-              class="card__image perfection-image"
+              class="card__image saturate-sepia-hue-rotate-image"
               src="./images/perfection.avif"
               alt="Попадание в мишень"
               loading="lazy"
@@ -299,7 +299,7 @@
           <div class="card__image-wrapper">
             <span class="card__label">care</span>
             <img
-              class="card__image care-image"
+              class="card__image saturate-image"
               src="./images/turtles.gif"
               alt="Черепашка возит на спине другую черепашку"
               loading="lazy"
@@ -364,7 +364,7 @@
           <div class="card__image-wrapper">
             <span class="card__label">&lt;support&gt;</span>
             <img
-              class="card__image perspective-image"
+              class="card__image invert-contrast-saturate-image"
               src="./images/image.png"
               alt="Фургон для путешествий"
               loading="lazy"
@@ -425,7 +425,7 @@
           <div class="card__image-wrapper">
             <span class="card__label">&lt;lifes-style: none;&gt;</span>
             <img
-              class="card__image snow-image"
+              class="card__image brightness-contrast-saturate-image"
               src="./images/snow.gif"
               alt="Расстроенный Джон Сноу"
               loading="lazy"
@@ -556,7 +556,7 @@
           <svg class="save-button__icon">
             <use href="./svg/floppy.svg#floppy"></use>
           </svg>
-          <span class="button__text">Сохранить на память</span>
+          <span class="button__text">Сохранить на&nbsp;память</span>
         </button>
       </section>
     </main>
@@ -567,13 +567,15 @@
         </svg>
         <span>Вставьте дискету, чтобы продолжить</span>
       </div>
-      <button
-        type="button"
-        class="continue-dialog__button button"
-        onclick="window['continue-dialog'].close()"
-      >
-        <span class="button__text">ок</span>
-      </button>
+      <form method="dialog" class="continue-dialog__form">
+        <button
+          type="submit"
+          class="continue-dialog__button button"
+          onclick="window['continue-dialog'].close()"
+        >
+          <span class="button__text">ок</span>
+        </button>
+      </form>
     </dialog>
     <script src="./scripts/set-theme.js"></script>
     <script src="./scripts/like.js"></script>
